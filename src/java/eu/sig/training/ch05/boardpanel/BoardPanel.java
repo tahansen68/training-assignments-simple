@@ -23,17 +23,17 @@ public class BoardPanel {
      * @param h
      *            The height of this square (in pixels).
      */
-    private void render(Square square, Graphics g, Point point, int w, int h) {
-        square.getSprite().draw(g, point, w, h);
+    private void render(Square square, Graphics g, Point point, Size size) {
+        square.getSprite().draw(g, point, size);
         for (Unit unit : square.getOccupants()) {
-            unit.getSprite().draw(g, point, w, h);
+            unit.getSprite().draw(g, point, size);
         }
     }
     // end::render[]
 
     private class Sprite {
         @SuppressWarnings("unused")
-        public void draw(Graphics g, Point point, int w, int h) {
+        public void draw(Graphics g, Point point, Size size) {
 
         }
     }
@@ -60,5 +60,13 @@ public class Point(){
     public Point (int x, int y){
      this.x = x;
      this.y = y;
+	}
+}
+public class Size(){
+    public int w;
+    public int h;
+    public Point (int w, int h){
+     this.h = w;
+     this.w = h;
 	}
 }
