@@ -1,31 +1,44 @@
 package eu.sig.training.ch05.buildandsendmail;
 
 public class Person{
-public String firstName;
-public String lastName;
-public String division;
-public Person(String firstName, String lastName, String division ){
+  public String firstName;
+  public String lastName;
+  public String division;
+  public Person(String firstName, String lastName, String division ){
     this.lastName = lastName;
     this.firstName = firstName;
     this.division = division;
+  }
 }
 
+public class MailMessageForm {
+    public String subject;
+    public MailFont mailFont;
+    public String message1;
+    public String message2;
+    public String message3;
+
+    public MailMessageForm(MailFont mailFont, String subject, String message1, String message2, String message3){
+      this.mailFont = mailFont;
+      this.subject = subject;
+      this.message1 = message1;
+      this.message2 = message2;
+      this.message3 = message3;
+	}
 }
 
 public class BuildAndSendMail {
-    // tag::buildAndSendMail[]
-    public void buildAndSendMail(MailMan m, Person person, String subject, MailFont font, String message1,
-        String message2, String message3) {
+    public void buildAndSendMail(MailMan m, Person person, MailMessageForm form
+    ) {
         // Format the email address
         String mId = person.firstName.charAt(0) + "." + person.lastName.substring(0, 7) + "@"
             + person.division.substring(0, 5) + ".compa.ny";
         // Format the message given the content type and raw message
-        MailMessage mMessage = formatMessage(font,
-            message1 + message2 + message3);
+        MailMessage mMessage = formatMessage(form.mailFont,
+            form.message1 + form.message2 + form.message3);
         // Send message
-        m.send(mId, subject, mMessage);
+        m.send(mId, from.subject, mMessage);
     }
-    // end::buildAndSendMail[]
 
     @SuppressWarnings("unused")
     private MailMessage formatMessage(MailFont font, String string) {
