@@ -13,13 +13,11 @@ public class Person{
 
 public class MailMessageForm {
     public String subject;
-    public MailFont mailFont;
     public String message1;
     public String message2;
     public String message3;
 
-    public MailMessageForm(MailFont mailFont, String subject, String message1, String message2, String message3){
-      this.mailFont = mailFont;
+    public MailMessageForm( String subject, String message1, String message2, String message3){
       this.subject = subject;
       this.message1 = message1;
       this.message2 = message2;
@@ -28,13 +26,13 @@ public class MailMessageForm {
 }
 
 public class BuildAndSendMail {
-    public void buildAndSendMail(MailMan m, Person person, MailMessageForm form
+    public void buildAndSendMail(MailMan m, MailFont font, Person person, MailMessageForm form
     ) {
         // Format the email address
         String mId = person.firstName.charAt(0) + "." + person.lastName.substring(0, 7) + "@"
             + person.division.substring(0, 5) + ".compa.ny";
         // Format the message given the content type and raw message
-        MailMessage mMessage = formatMessage(form.mailFont,
+        MailMessage mMessage = formatMessage(font,
             form.message1 + form.message2 + form.message3);
         // Send message
         m.send(mId, from.subject, mMessage);
