@@ -6,9 +6,11 @@ import java.util.List;
 
 public class FlagFactory {
 
+
     // tag::getFlag[]
     public List<Color> getFlagColors(Nationality nationality) {
-        List<Color> result;
+        return Flag(nationality).getFlagColors;
+/*        List<Color> result;
         switch (nationality) {
         case DUTCH:
             result = Arrays.asList(Color.RED, Color.WHITE, Color.BLUE);
@@ -48,5 +50,25 @@ public class FlagFactory {
         return result;
     }
     // end::getFlag[]
-
+    */
 }
+
+abstract class Flag{
+  abstract List<Color> getFlagColors();
+}
+ public class DUTCH extends Flag{
+    result = Arrays.asList(Color.RED, Color.WHITE, Color.BLUE);
+ }
+
+ public class RUSSIA extends Flag
+ {
+  public List<Color> getFlagColors(){
+      return Arrays.asList(Color.WHITE, Color.BLUE, Color.RED);
+  }
+ }
+ public class BULGARIAN extends Flag
+ {
+  public List<Color> getFlagColors(){
+      return Arrays.asList(Color.WHITE, Color.GREEN, Color.RED);
+  }
+ }
