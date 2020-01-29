@@ -7,7 +7,7 @@ import java.util.List;
 public class FlagFactory {
 
 
-    // tag::getFlag[]
+    
     public List<Color> getFlagColors(Nationality nationality) {
         return Flag(nationality).getFlagColors;
 /*        List<Color> result;
@@ -49,7 +49,7 @@ public class FlagFactory {
         }
         return result;
     }
-    // end::getFlag[]
+
     */
 }
 

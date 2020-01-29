@@ -1,6 +1,5 @@
 package eu.sig.training.ch04;
 
-// tag::CheckingAccount[]
 public class CheckingAccount extends Accunt
 {
     private static final float INTEREST_PERCENTAGE = 0.01f;
@@ -43,4 +42,4 @@ public abstract class Accunt{
         throw new BusinessException("Invalid account number!");
 	}
 }
-// end::CheckingAccount[]
+
